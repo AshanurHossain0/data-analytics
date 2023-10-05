@@ -31,7 +31,8 @@ const analytics = async function (req, res, next) {
                     req.expectedData = expectedData;
                 }
                 else{
-                    const expectedData=_.filter(blogs, blog => _.includes(blog.title.toLowerCase(),req.query.query.toLowerCase()))
+                    let query=req.query.query || "";
+                    const expectedData=_.filter(blogs, blog => _.includes(blog.title.toLowerCase(),query.toLowerCase()))
                     req.expectedData = expectedData;
                 }
 
