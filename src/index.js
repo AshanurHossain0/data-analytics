@@ -6,6 +6,10 @@ app.use(express.json());
 
 app.use("/api",routes)
 
+app.use("/*",(req,res)=>{
+    return res.status(400).json("Api is running but Path is Invalid")
+})
+
 
 
 app.listen(3000,()=>{
